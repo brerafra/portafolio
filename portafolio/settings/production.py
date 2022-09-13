@@ -10,11 +10,14 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': config('DB_NAME_'),
+        'USER': config('DB_USER_'),
+        'PASSWORD': config('DB_PASSWORD_'),
+        'HOST': config('DB_HOST_'),
+        'PORT': config('DB_PORT_'),
     }
 }
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
