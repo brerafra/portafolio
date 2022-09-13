@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 
@@ -19,3 +19,9 @@ def picture(request, id):
     context = {"project":project}
 
     return render(request,'foto.html',context)
+
+def contacto(request):
+    if request.method == 'POST':
+        Contacto.objects.create(Name=request.POST['name'],email=request.POST['email'],title=request.POST['subject'],message=request.POST['message'])
+
+    return redirect('/')
